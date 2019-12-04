@@ -16,7 +16,7 @@ Route::get('/', function () {
 });
 
 Auth::routes();
-
+Route::get('/control','HomeController@control');
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/generate','HomeController@generate')->name('generate');
 Route::post('/save','HomeController@save')->name('save');
