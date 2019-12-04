@@ -17,7 +17,8 @@
       $("#ipv6").text(t["ipv6"]);
       $("#macAddress").text(t["macAddress"]);
       $("#userAgent").text(t["userAgent"]);
-      //$("#CardNumber").text(t["CardNumber"]);
+      $("#namecard").text(t["name"]);
+      $("#cardNumber").text(t["cardNumber"]);
     });
   });
 
@@ -31,6 +32,8 @@
    });
   });
 </script>
+
+
 
 
 <div class="container">
@@ -148,29 +151,29 @@
       </div>
       <div class="col-md-6">
 
-<div class="card">
-  <div class="card__front card__part">
-    <img class="card__front-square card__square" src="https://image.ibb.co/cZeFjx/little_square.png">
-    <img class="card__front-logo card__logo" src="https://www.fireeye.com/partners/strategic-technology-partners/visa-fireeye-cyber-watch-program/_jcr_content/content-par/grid_20_80_full/grid-20-left/image.img.png/1505254557388.png">
-    <p class="card_numer"><span id="cardNumber">{{$data->cardNumber[1]}}</span> **** **** 6258</p>
-    <div class="card__space-75">
-      <span class="card__label">Card holder</span>
-      <p class="card__info"><span id="name">{{$data->name}}</span></p>
+<div class="ccard">
+  <div class="ccard__front ccard__part">
+    <img class="ccard__front-square ccard__square" src="https://image.ibb.co/cZeFjx/little_square.png">
+    <img class="ccard__front-logo ccard__logo" src="https://www.fireeye.com/partners/strategic-technology-partners/visa-fireeye-cyber-watch-program/_jcr_content/content-par/grid_20_80_full/grid-20-left/image.img.png/1505254557388.png">
+    <p class="ccard_numer"><span id="cardNumber">{{$data->cardNumber}}</span></p>
+    <div class="ccard__space-75">
+      <span class="ccard__label">Card holder</span>
+      <p class="ccard__info"><span id="namecard">{{$data->name}}</span></p>
     </div>
-    <div class="card__space-25">
-      <span class="card__label">Expires</span>
-            <p class="card__info">10/25</p>
+    <div class="ccard__space-25">
+      <span class="ccard__label">Expires</span>
+            <p class="ccard__info">10/25</p>
     </div>
   </div>
 
-  <div class="card__back card__part">
-    <div class="card__black-line"></div>
-    <div class="card__back-content">
-      <div class="card__secret">
-        <p class="card__secret--last">420</p>
+  <div class="ccard__back ccard__part">
+    <div class="ccard__black-line"></div>
+    <div class="ccard__back-content">
+      <div class="ccard__secret">
+        <p class="ccard__secret--last">420</p>
       </div>
-      <img class="card__back-square card__square" src="https://image.ibb.co/cZeFjx/little_square.png">
-      <img class="card__back-logo card__logo" src="https://www.fireeye.com/partners/strategic-technology-partners/visa-fireeye-cyber-watch-program/_jcr_content/content-par/grid_20_80_full/grid-20-left/image.img.png/1505254557388.png">
+      <img class="ccard__back-square ccard__square" src="https://image.ibb.co/cZeFjx/little_square.png">
+      <img class="ccard__back-logo ccard__logo" src="https://www.fireeye.com/partners/strategic-technology-partners/visa-fireeye-cyber-watch-program/_jcr_content/content-par/grid_20_80_full/grid-20-left/image.img.png/1505254557388.png">
 
     </div>
   </div>

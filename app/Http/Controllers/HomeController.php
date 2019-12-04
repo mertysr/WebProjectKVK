@@ -43,7 +43,7 @@ class HomeController extends Controller
         $data->ipv6 = $faker->ipv6;
         $data->macAddress = $faker->macAddress;
         $data->userAgent = $faker->userAgent;
-        $data->cardNumber = str_split(rand(1000000000000000, 9999999999999999),4);
+        $data->cardNumber = rand(1000000000000000, 9999999999999999);
       }
       //$phoneNumber['phoneNumber']=Faker::PhoneNumber.phone_number_with_country_code;
       return view('home', ["data" => $data]);
@@ -54,7 +54,7 @@ class HomeController extends Controller
         return ["name" => $faker->name, "address" => $faker->address,"phoneNumber" => $faker->phoneNumber,
       "company" => $faker->company, "jobTitle" => $faker->jobTitle, "email" => $faker->email, "companyEmail" => $faker->companyEmail,
       "password" => $faker->password,"ipv4" => $faker->ipv4,"localIpv4" => $faker->localIpv4,"ipv6" => $faker->ipv6,
-      "macAddress" => $faker->macAddress,"userAgent" => $faker->userAgent,"cardNumber" => str_split(rand(1000000000000000, 9999999999999999),4),
+      "macAddress" => $faker->macAddress,"userAgent" => $faker->userAgent,"cardNumber" => rand(1000000000000000, 9999999999999999),
 
       ];
     }
