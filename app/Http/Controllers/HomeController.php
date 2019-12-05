@@ -43,19 +43,22 @@ class HomeController extends Controller
         $data->ipv6 = $faker->ipv6;
         $data->macAddress = $faker->macAddress;
         $data->userAgent = $faker->userAgent;
-        $data->cardNumber = rand(1000000000000000, 9999999999999999);
+        $data->creditCardNumber = rand(1000000000000000, 9999999999999999);
+        $data->secureNumber = rand(100,999);
+        $data->creditCardExpirationDateString = $faker->creditCardExpirationDateString;
       }
       //$phoneNumber['phoneNumber']=Faker::PhoneNumber.phone_number_with_country_code;
       return view('home', ["data" => $data]);
     }
     public function generate(){
       $faker=Faker::create('lt_LT');
+      $data=rand(1000000000000000, 9999999999999999);
+      $creditCardNumber=str_split($data,4)[0]." ".str_split($data,4)[1]." ".str_split($data,4)[2]." ".str_split($data,4)[3];
       //$phoneNumber['phoneNumber']=Faker::PhoneNumber.phone_number_with_country_code;
         return ["name" => $faker->name, "address" => $faker->address,"phoneNumber" => $faker->phoneNumber,
       "company" => $faker->company, "jobTitle" => $faker->jobTitle, "email" => $faker->email, "companyEmail" => $faker->companyEmail,
       "password" => $faker->password,"ipv4" => $faker->ipv4,"localIpv4" => $faker->localIpv4,"ipv6" => $faker->ipv6,
-      "macAddress" => $faker->macAddress,"userAgent" => $faker->userAgent,"cardNumber" => rand(1000000000000000, 9999999999999999),
-
+      "macAddress" => $faker->macAddress,"userAgent" => $faker->userAgent,"creditCardNumber" => $creditCardNumber, "secureNumber" => rand(100,999),"creditCardExpirationDateString" => $faker->creditCardExpirationDateString,
       ];
     }
     public function save(Request $request){
@@ -75,7 +78,9 @@ class HomeController extends Controller
         "ipv6" => $request->get("ipv6"),
         "macAddress" => $request->get("macAddress"),
         "userAgent" => $request->get("userAgent"),
-        "cardNumber" => $request->get("cardNumber"),
+        "creditCardNumber" => $request->get("creditCardNumber"),
+        "secureNumber" => $request->get("secureNumber"),
+        "creditCardExpirationDateString" => $request->get("creditCardExpirationDateString"),
       ]);
       return $data;
     }
@@ -85,5 +90,6 @@ class HomeController extends Controller
     }
     public function control(){
         $faker=Faker::create('lt_LT');
+        return $faker->creditCardType;
     }
 }

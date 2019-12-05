@@ -18,7 +18,9 @@
       $("#macAddress").text(t["macAddress"]);
       $("#userAgent").text(t["userAgent"]);
       $("#namecard").text(t["name"]);
-      $("#cardNumber").text(t["cardNumber"]);
+      $("#creditCardNumber").text(t["creditCardNumber"]);
+      $("#secureNumber").text(t["secureNumber"]);
+      $("#creditCardExpirationDateString").text(t["creditCardExpirationDateString"]);
     });
   });
 
@@ -26,9 +28,7 @@
     $.post("{{ route('save') }}", { "_token": "{{ csrf_token() }}", "name": $("#name").text(), "address": $("#address").text(), "phoneNumber": $("#phoneNumber").text(),
       "company": $("#company").text(),"jobTitle": $("#jobTitle").text(),"email": $("#email").text(),"companyEmail": $("#companyEmail").text(),"password": $("#password").text(),
       "ipv4": $("#ipv4").text(),"localIpv4": $("#localIpv4").text(),"ipv6": $("#ipv6").text(),"macAddress": $("#macAddress").text(),
-      "userAgent": $("#userAgent").text(),
-      //"CardNumber": $("#CardNumber").text(),
-
+      "userAgent": $("#userAgent").text(),"creditCardNumber": $("#creditCardNumber").text(),"secureNumber": $("#secureNumber").text(),"creditCardExpirationDateString": $("#creditCardExpirationDateString").text(),
    });
   });
 </script>
@@ -155,14 +155,21 @@
   <div class="ccard__front ccard__part">
     <img class="ccard__front-square ccard__square" src="https://image.ibb.co/cZeFjx/little_square.png">
     <img class="ccard__front-logo ccard__logo" src="https://www.fireeye.com/partners/strategic-technology-partners/visa-fireeye-cyber-watch-program/_jcr_content/content-par/grid_20_80_full/grid-20-left/image.img.png/1505254557388.png">
-    <p class="ccard_numer"><span id="cardNumber">{{$data->cardNumber}}</span></p>
+    <p class="ccard_numer"><span id="creditCardNumber">
+      @php
+        $datas=str_split($data->creditCardNumber,4);
+        echo $datas[0]." ".$datas[1]." ".$datas[2]." ".$datas[3];
+      @endphp
+
+
+    </span></p>
     <div class="ccard__space-75">
       <span class="ccard__label">Card holder</span>
       <p class="ccard__info"><span id="namecard">{{$data->name}}</span></p>
     </div>
     <div class="ccard__space-25">
       <span class="ccard__label">Expires</span>
-            <p class="ccard__info">10/25</p>
+            <p class="ccard__info"><span id="creditCardExpirationDateString">{{$data->creditCardExpirationDateString}}</span></p>
     </div>
   </div>
 
@@ -170,7 +177,7 @@
     <div class="ccard__black-line"></div>
     <div class="ccard__back-content">
       <div class="ccard__secret">
-        <p class="ccard__secret--last">420</p>
+        <p class="ccard__secret--last"><span id="secureNumber">{{$data->secureNumber}}</span></p>
       </div>
       <img class="ccard__back-square ccard__square" src="https://image.ibb.co/cZeFjx/little_square.png">
       <img class="ccard__back-logo ccard__logo" src="https://www.fireeye.com/partners/strategic-technology-partners/visa-fireeye-cyber-watch-program/_jcr_content/content-par/grid_20_80_full/grid-20-left/image.img.png/1505254557388.png">

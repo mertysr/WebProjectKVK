@@ -34,6 +34,7 @@ class CreateRandomDataTable extends Migration
             $table->string('creditCardExpirationDateString')->nullable();
             $table->string('locale')->nullable();
             $table->string('bank')->nullable();
+            $table->string('secureNumber')->nullable();
             $table->string('bankAccountNumber')->nullable();
             $table->foreign('userId')
             ->references('id')
