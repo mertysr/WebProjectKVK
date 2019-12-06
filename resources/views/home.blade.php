@@ -153,8 +153,9 @@
 
 <div class="ccard">
   <div class="ccard__front ccard__part">
+
     <img class="ccard__front-square ccard__square" src="https://image.ibb.co/cZeFjx/little_square.png">
-    <img class="ccard__front-logo ccard__logo" src="https://www.fireeye.com/partners/strategic-technology-partners/visa-fireeye-cyber-watch-program/_jcr_content/content-par/grid_20_80_full/grid-20-left/image.img.png/1505254557388.png">
+    <img class="ccard__front-logo ccard__logo" src="/img/0.png">
     <p class="ccard_numer"><span id="creditCardNumber">
       @php
         $datas=str_split($data->creditCardNumber,4);
@@ -180,7 +181,7 @@
         <p class="ccard__secret--last"><span id="secureNumber">{{$data->secureNumber}}</span></p>
       </div>
       <img class="ccard__back-square ccard__square" src="https://image.ibb.co/cZeFjx/little_square.png">
-      <img class="ccard__back-logo ccard__logo" src="https://www.fireeye.com/partners/strategic-technology-partners/visa-fireeye-cyber-watch-program/_jcr_content/content-par/grid_20_80_full/grid-20-left/image.img.png/1505254557388.png">
+      <img class="ccard__back-logo ccard__logo" src="/img/0.png">
 
     </div>
   </div>
